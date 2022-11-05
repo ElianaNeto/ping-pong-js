@@ -11,13 +11,28 @@
 <body>
   <main>
     <center>
-    <span id="logo">PING - PONG</span> 
-    <br>
-    <span class="start-title">Clica para começar o jogo</span>
-    <div>
-      <button class="button" role="button" onclick="mode(this, 'hh')" >HUMANO vs HUMANO</button> 
-      <button class="button" role="button" onclick="mode(this, 'hc')">HUMANO vs COMPUTADOR</button> 
-    </div>
+    <section id="home" class="home">
+      <span id="logo">PING - PONG</span> 
+      <br>
+      <span class="start-title">Clica para começar o jogo</span>
+      <div>
+        <button class="button" role="button" onclick="mode(this, 'hh')" >HUMANO vs HUMANO</button> 
+        <button class="button" role="button" onclick="mode(this, 'hc')">HUMANO vs COMPUTADOR</button> 
+      </div>
+    </section>
+
+    <section id="game" class="game">
+      <button class="button" role="button" onclick="displayHome()" >VOLTAR</button> 
+      <div id="left"></div>
+      <div id="ball"></div>
+      <div id="right"></div>
+      <center>
+      <span id="scoreleft">0 </span><span id="deli"> : </span><span id="scoreright"> 0</span>
+      <br>
+      <span id="goal">GOAL !!!</span>  
+    </section>
+   
+    
   </main>
 
   <script src="assets/js/index.js"></script>
