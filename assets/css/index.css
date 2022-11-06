@@ -114,6 +114,11 @@ body{
 }*/
 
 /* CSS */
+#btn_voltar{
+  display: block;
+  margin-top: 300px;
+
+}
 .button {
   font-size: 16px;
   font-weight: 200;
