@@ -182,8 +182,10 @@ function modeHumanComputer() {
   b.style.left = w / 2 + "px";
 
   function computer(){
-    l.style.top = nfp(b.style.top) + ps + "px";
+    l.style.top = nfp(l.style.top) + speedyComp + "px";
     console.log(l.style.top );
+    console.log("altua: "+h);
+
   }
 
   function ball() {
@@ -194,7 +196,7 @@ function modeHumanComputer() {
   function moveComputer(){
     computer();
     //remove overflow y
-    if (h < nfp(l.style.top) || nfp(l.style.top) < 0) {
+    if (h < (nfp(l.style.top) + 200) || nfp(l.style.top) < 0) {
       speedyComp *= -1;
     }
 
