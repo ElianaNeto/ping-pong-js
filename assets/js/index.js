@@ -33,7 +33,6 @@ function pxToNumber(urpx) {
   return Number(urpx.replace("px", ""));
 }
 
-
 function displayHome() {
   game.style.display = "none";
   home.style.display = "block";
@@ -157,7 +156,6 @@ function goal(pos) {
 }
 
 function modeHumanHuman() {
-
   setInterval(function () {
     keydown();
   }, 10);
@@ -165,7 +163,6 @@ function modeHumanHuman() {
 }
 
 function modeHumanComputer() {
-
   setInterval(function () {
     keydown();
   }, 10);
