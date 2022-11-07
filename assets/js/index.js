@@ -177,12 +177,13 @@ function modeHumanComputer() {
   }
 
   var speedx = 3,
-    speedy = 1;
+    speedy = 1, speedyComp =1;
   var balltime = 1;
   b.style.left = w / 2 + "px";
 
   function computer(){
     l.style.top = nfp(b.style.top) + ps + "px";
+    console.log(l.style.top );
   }
 
   function ball() {
@@ -193,8 +194,8 @@ function modeHumanComputer() {
   function moveComputer(){
     computer();
     //remove overflow y
-    if (h < nfp(l.style.top) + 200 || nfp(l.style.top) < 0) {
-      speedy *= -1;
+    if (h < nfp(l.style.top) || nfp(l.style.top) < 0) {
+      speedyComp *= -1;
     }
 
     setTimeout(function () {
