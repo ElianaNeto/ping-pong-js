@@ -8,6 +8,11 @@ body{
  background-color: black;
 }
 
+.start-title
+{
+  width: 1150px;
+}
+
 .start-title h1 {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: .15em solid orange; /* The typwriter cursor */
