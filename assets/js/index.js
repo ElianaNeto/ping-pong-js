@@ -146,7 +146,8 @@ function modeHumanHuman() {
   }
 }
 
-function modeHumanComputer() {}
+function modeHumanComputer() {
+}
 
 function startGame(mode) {
   if (mode === "hh") {
