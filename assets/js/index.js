@@ -26,7 +26,7 @@ var map = []; // Or you could call it "key"
   };
 
 var speedx = 3, speedy = 1;
-var balltime = 1,  speedyComp =1;
+var balltime = 1,  speedyComp = 1;
 b.style.left = w / 2 + "px";
 
 function pxToNumber(urpx) {
@@ -37,7 +37,7 @@ function displayHome() {
   game.style.display = "none";
   home.style.display = "block";
   falgStartGame = false;
-  console.log("JOGO ACABOU");
+  //console.log("JOGO ACABOU");
   location.reload();
 }
 
