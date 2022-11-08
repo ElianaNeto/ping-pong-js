@@ -7,8 +7,8 @@ var falgStartGame = false;
 var playerSpeed = 15;
 
 
-var r = document.getElementById("right");
-var l = document.getElementById("left");
+var rightPlayer = document.getElementById("right");
+var leftPlayer = document.getElementById("left");
 var b = document.getElementById("ball");
 
 var rscore = document.getElementById("scoreleft");
@@ -54,26 +54,26 @@ function displayGame(mode) {
 function keydown() {
   //if key was up arrow
   if (map[40]) {
-    if (pxToNumber(r.style.top) + playerSpeed > h - 200) r.style.top = h - 200 + "px";
-    else r.style.top = pxToNumber(r.style.top) + playerSpeed + "px";
+    if (pxToNumber(rightPlayer.style.top) + playerSpeed > h - 200) rightPlayer.style.top = h - 200 + "px";
+    else rightPlayer.style.top = pxToNumber(rightPlayer.style.top) + playerSpeed + "px";
   }
 
   //if key was down arrow
   else if (map[38]) {
-    if (pxToNumber(r.style.top) - playerSpeed < 0) r.style.top = 0 + "px";
-    else r.style.top = pxToNumber(r.style.top) - playerSpeed + "px";
+    if (pxToNumber(rightPlayer.style.top) - playerSpeed < 0) rightPlayer.style.top = 0 + "px";
+    else rightPlayer.style.top = pxToNumber(rightPlayer.style.top) - playerSpeed + "px";
   }
 
   //if key was s
   if (map[83]) {
-    if (pxToNumber(l.style.top) + playerSpeed > h - 200) l.style.top = h - 200 + "px";
-    else l.style.top = pxToNumber(l.style.top) + playerSpeed + "px";
+    if (pxToNumber(leftPlayer.style.top) + playerSpeed > h - 200) leftPlayer.style.top = h - 200 + "px";
+    else leftPlayer.style.top = pxToNumber(leftPlayer.style.top) + playerSpeed + "px";
   }
 
   //if key was w
   else if (map[87]) {
-    if (pxToNumber(l.style.top) - playerSpeed < 0) l.style.top = 0 + "px";
-    else l.style.top = pxToNumber(l.style.top) - playerSpeed + "px";
+    if (pxToNumber(leftPlayer.style.top) - playerSpeed < 0) leftPlayer.style.top = 0 + "px";
+    else leftPlayer.style.top = pxToNumber(leftPlayer.style.top) - playerSpeed + "px";
   }
 
   //40 arrow down, 38 arrow up
@@ -81,13 +81,13 @@ function keydown() {
 }
 
 function computer(){
-  l.style.top = pxToNumber(l.style.top) + speedyComp + "px";
+  leftPlayer.style.top = pxToNumber(leftPlayer.style.top) + speedyComp + "px";
 }
 
 function moveComputer(){
   computer();
   //remove overflow y
-  if (h < (pxToNumber(l.style.top) + 200) || pxToNumber(l.style.top) < 0) {
+  if (h < (pxToNumber(leftPlayer.style.top) + 200) || pxToNumber(leftPlayer.style.top) < 0) {
     speedyComp *= -1;
   }
 
@@ -113,8 +113,8 @@ function moveball() {
   //overflow-x right
   if (pxToNumber(b.style.left) >= w - 50) {
     if (
-      pxToNumber(r.style.top) <= pxToNumber(b.style.top) + 20 &&
-      pxToNumber(r.style.top) + 200 >= pxToNumber(b.style.top)
+      pxToNumber(rightPlayer.style.top) <= pxToNumber(b.style.top) + 20 &&
+      pxToNumber(rightPlayer.style.top) + 200 >= pxToNumber(b.style.top)
     ) {
       speedx *= -1;
     } else if (pxToNumber(b.style.left) >= w - 20) goal("left");
@@ -123,8 +123,8 @@ function moveball() {
   //remove overflow x in left ir get the goal in left
   if (pxToNumber(b.style.left) <= 30) {
     if (
-      pxToNumber(l.style.top) <= pxToNumber(b.style.top) + 20 &&
-      pxToNumber(l.style.top) + 200 >= pxToNumber(b.style.top)
+      pxToNumber(leftPlayer.style.top) <= pxToNumber(b.style.top) + 20 &&
+      pxToNumber(leftPlayer.style.top) + 200 >= pxToNumber(b.style.top)
     ) {
       speedx *= -1;
     } else if (pxToNumber(b.style.left) <= 0) goal("right");
