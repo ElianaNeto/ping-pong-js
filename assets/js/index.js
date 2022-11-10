@@ -6,7 +6,6 @@ var falgStartGame = false;
 //playerSpeed = player speed
 var playerSpeed = 15;
 
-
 var rightPlayer = document.getElementById("right");
 var leftPlayer = document.getElementById("left");
 var b = document.getElementById("ball");
