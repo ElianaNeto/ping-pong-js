@@ -5,6 +5,7 @@ var falgStartGame = false;
 
 //playerSpeed = player speed
 var playerSpeed = 15;
+let computerMode = 0; // 1 -> Defense mode, 0 -> Normal mode
 
 var rightPlayer = document.getElementById("right-player-div");
 var leftPlayer = document.getElementById("left-player-div");
@@ -93,19 +94,24 @@ function keydown() {
   //screenWidth 87,s 83
 }
 
-function computer() {
+function updateComputerYPosition() {
   leftPlayer.style.top = pxToNumber(leftPlayer.style.top) + speedyComp + "px";
 }
 
 function moveComputer() {
-  computer();
-  //remove overflow y
+  if (computerMode == 1) {
+    speedyComp = speedy;
+  }
+
   if (
     screenHeight < pxToNumber(leftPlayer.style.top) + 200 ||
     pxToNumber(leftPlayer.style.top) < 0
   ) {
     speedyComp *= -1;
   }
+
+  updateComputerYPosition();
+  //remove overflow y
 
   setTimeout(function () {
     moveComputer();
@@ -121,7 +127,10 @@ function moveball() {
   updateBallPosition();
 
   //remove overflow y
-  if (screenHeight < pxToNumber(ball.style.top) + 20 || pxToNumber(ball.style.top) < 0) {
+  if (
+    screenHeight < pxToNumber(ball.style.top) + 20 ||
+    pxToNumber(ball.style.top) < 0
+  ) {
     speedy *= -1;
   }
 
@@ -132,7 +141,11 @@ function moveball() {
       pxToNumber(rightPlayer.style.top) + 200 >= pxToNumber(ball.style.top)
     ) {
       speedx *= -1;
-    } else if (pxToNumber(ball.style.left) >= screenWidth - 20) goal("left-player-div");
+      computerMode = 1; // 1 -> Save mode
+    } else if (pxToNumber(ball.style.left) >= screenWidth - 20) {
+      computerMode = 0; // 0 -> Normal mode
+      goal("left-player-div");
+    }
   }
 
   //remove overflow x in left ir get the goal in left
@@ -142,7 +155,11 @@ function moveball() {
       pxToNumber(leftPlayer.style.top) + 200 >= pxToNumber(ball.style.top)
     ) {
       speedx *= -1;
-    } else if (pxToNumber(ball.style.left) <= 0) goal("right-player-div");
+      computerMode = 0; // 0 -> Normal mode
+    } else if (pxToNumber(ball.style.left) <= 0) {
+      computerMode = 0;
+      goal("right-player-div");
+    }
   }
 
   setTimeout(function () {
