@@ -112,19 +112,20 @@ body{
   color: #000000;
 }
 
-#left{
+#left-player-div, #right-player-div{
   position: relative;
   width: 30px;
   height: 200px;
   background-color: white;
+}
+
+#left-player-div{
+  background-color: #0073df;
   float: left;
 }
 
-#right{
-  position: relative;
-  width: 30px;
-  height: 200px;
-  background-color: white;    
+#right-player-div {
+  background-color: #e90000;    
   float: right;
 }
 
@@ -132,7 +133,7 @@ body{
   position: absolute;
   width: 20px;
   height: 20px;
-  background-color:white;
+  background-color:#d6e600;
   border-radius: 50%;
 }
 
