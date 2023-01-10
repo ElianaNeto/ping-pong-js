@@ -26,10 +26,10 @@ onkeydown = onkeyup = function (e) {
   /*insert conditional here*/
 };
 
-var speedx = 3,
-  speedy = 1;
+var ballXDirection = 3,
+  ballYDirection = 1;
 var balltime = 1,
-  speedyComp = 1;
+  ballYDirectionComp = 1;
 ball.style.left = screenWidth / 2 + "px";
 
 function pxToNumber(urpx) {
@@ -40,7 +40,6 @@ function displayHome() {
   game.style.display = "none";
   home.style.display = "block";
   falgStartGame = false;
-  //console.log("JOGO ACABOU");
   location.reload();
 }
 
@@ -95,19 +94,20 @@ function keydown() {
 }
 
 function updateComputerYPosition() {
-  leftPlayer.style.top = pxToNumber(leftPlayer.style.top) + speedyComp + "px";
+  leftPlayer.style.top =
+    pxToNumber(leftPlayer.style.top) + ballYDirectionComp + "px";
 }
 
 function moveComputer() {
   if (computerMode == 1) {
-    speedyComp = speedy;
+    ballYDirectionComp = ballYDirection;
   }
 
   if (
     screenHeight < pxToNumber(leftPlayer.style.top) + 200 ||
     pxToNumber(leftPlayer.style.top) < 0
   ) {
-    speedyComp *= -1;
+    ballYDirectionComp *= -1;
   }
 
   updateComputerYPosition();
@@ -119,8 +119,8 @@ function moveComputer() {
 }
 
 function updateBallPosition() {
-  ball.style.left = pxToNumber(ball.style.left) + speedx + "px";
-  ball.style.top = pxToNumber(ball.style.top) + speedy + "px";
+  ball.style.left = pxToNumber(ball.style.left) + ballXDirection + "px";
+  ball.style.top = pxToNumber(ball.style.top) + ballYDirection + "px";
 }
 
 function moveball() {
@@ -131,7 +131,7 @@ function moveball() {
     screenHeight < pxToNumber(ball.style.top) + 20 ||
     pxToNumber(ball.style.top) < 0
   ) {
-    speedy *= -1;
+    ballYDirection *= -1;
   }
 
   //overflow-x right
@@ -140,12 +140,12 @@ function moveball() {
       pxToNumber(rightPlayer.style.top) <= pxToNumber(ball.style.top) + 20 &&
       pxToNumber(rightPlayer.style.top) + 200 >= pxToNumber(ball.style.top)
     ) {
-      speedx *= -1;
-      computerMode = 1; // 1 -> Save mode
+      ballXDirection *= -1;
     } else if (pxToNumber(ball.style.left) >= screenWidth - 20) {
-      computerMode = 0; // 0 -> Normal mode
       goal("left-player-div");
     }
+
+    verifyDefenseMode();
   }
 
   //remove overflow x in left ir get the goal in left
@@ -154,12 +154,12 @@ function moveball() {
       pxToNumber(leftPlayer.style.top) <= pxToNumber(ball.style.top) + 20 &&
       pxToNumber(leftPlayer.style.top) + 200 >= pxToNumber(ball.style.top)
     ) {
-      speedx *= -1;
-      computerMode = 0; // 0 -> Normal mode
+      ballXDirection *= -1;
     } else if (pxToNumber(ball.style.left) <= 0) {
-      computerMode = 0;
       goal("right-player-div");
     }
+
+    verifyDefenseMode();
   }
 
   setTimeout(function () {
@@ -169,8 +169,15 @@ function moveball() {
 
 function mode(element, mode) {
   gameMode = mode;
-  console.log(gameMode);
   displayGame(gameMode);
+}
+
+function verifyDefenseMode() {
+  if (ballXDirection < 0) {
+    computerMode = 1;
+  } else {
+    computerMode = 0;
+  }
 }
 
 function goal(pos) {
@@ -183,7 +190,7 @@ function goal(pos) {
   if (pos == "left-player-div") rscore.innerHTML = Number(rscore.innerHTML) + 1;
   else lscore.innerHTML = Number(lscore.innerHTML) + 1;
 
-  speedx *= -1;
+  ballXDirection *= -1;
   ball.style.left = screenWidth / 2 + "px";
 }
 
@@ -204,10 +211,8 @@ function modeHumanComputer() {
 
 function startGame(mode) {
   if (mode === "hh") {
-    console.log("modo humano");
     modeHumanHuman();
   } else {
-    console.log("mode computador");
     modeHumanComputer();
   }
 }
