@@ -1,6 +1,7 @@
 var gameMode;
 var home = document.getElementById("home");
 var game = document.getElementById("game");
+
 var falgStartGame = false;
 
 //playerSpeed = player speed
@@ -52,12 +53,11 @@ function displayGame(mode) {
     console.log("JOGO COMECOU");
   }
 }
-
 function keydown() {
   //if key was up arrow
   if (map[40]) {
     if (pxToNumber(rightPlayer.style.top) + playerSpeed > screenHeight - 200)
-      rightPlayer.style.top = screenHeight - 200 + "px";
+      rightPlayer.style.top = h - 200 + "px";
     else
       rightPlayer.style.top =
         pxToNumber(rightPlayer.style.top) + playerSpeed + "px";
@@ -81,7 +81,7 @@ function keydown() {
         pxToNumber(leftPlayer.style.top) + playerSpeed + "px";
   }
 
-  //if key was screenWidth
+  //if key was w
   else if (map[87]) {
     if (pxToNumber(leftPlayer.style.top) - playerSpeed < 0)
       leftPlayer.style.top = 0 + "px";
@@ -91,7 +91,7 @@ function keydown() {
   }
 
   //40 arrow down, 38 arrow up
-  //screenWidth 87,s 83
+  //w 87,s 83
 }
 
 function updateComputerYPosition() {
