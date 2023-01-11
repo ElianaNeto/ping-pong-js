@@ -1,42 +1,52 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/css/index.css">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons8-ping-pong-16.png">
-  <title>Ping Pong</title>
-</head>
-<body>
-  <main>
-    <center>
-    <section id="home" class="home">
-      <span id="logo">PING - PONG</span> 
-      <br>
-      <div class="start-title"><h1>Clica para começar o jogo!</h1></div>
-      <div>
-        <button class="button" role="button" onclick="mode(this, 'hh')" >HUMANO vs HUMANO</button> 
-        <button class="button" role="button" onclick="mode(this, 'hc')">HUMANO vs COMPUTADOR</button> 
-      </div>
-    </section>
-
-    <section id="game" class="game">
-     
-      <div id="left"></div>
-      <div id="ball"></div>
-      <div id="right"></div>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons8-ping-pong-16.png">
+    <title>Ping Pong</title>
+  </head>
+  <body>
+    <main>
       <center>
-      <span id="scoreleft">0 </span><span id="deli"> : </span><span id="scoreright"> 0</span>
-      <br>
-      <span id="goal">GOLO!!!</span>
-      <button id="btn_voltar" class="button" role="button" onclick="displayHome()">VOLTAR</button>  
+        <section id="home" class="home">
+          <span id="logo">PING - PONG</span>
+          <br>
+          <div class="start-title">
+            <h1>Clica para começar o jogo!</h1>
+          </div>
+          <div>
+            <button class="button" role="button" onclick="mode(this, 'hh')">HUMANO vs HUMANO</button>
+            <button class="button" role="button" onclick="mode(this, 'hc')">HUMANO vs COMPUTADOR</button>
+          </div>
+        </section>
 
-    </section>
-   
-    
-  </main>
+        <section id="game" class="game">
 
-  <script src="assets/js/index.js"></script>
-</body>
+          <div id="left-player-div"></div>
+          <div id="ball"></div>
+          <div id="right-player-div"></div>
+          <center>
+            <span id="scoreleft">0
+            </span>
+            <span id="deli">
+              :
+            </span>
+            <span id="scoreright">
+              0</span>
+            <br>
+            <span id="goal">GOLO!!!</span>
+            <button id="btn_voltar" class="button" role="button" onclick="displayHome()">VOLTAR</button>
+
+          </section>
+
+
+        </main>
+
+        <script src="assets/js/index.js"></script>
+      </body>
+    </html>
+  </body>
 </html>
