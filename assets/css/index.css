@@ -1,132 +1,215 @@
-html,body{
-  margin:0;
+*{
+  margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
 body{
- overflow: hidden;
- background-color: black;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  background-color: rgb(0, 0, 0);
+
+}
+body::before{
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(7, 96, 131);
+  filter: blur(100px);
+  z-index: 1;
+}
+main{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  padding: 6px;
+  z-index: 3;
+}
+main .home{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+@media(max-width: 906px){
+  main .home{
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  main .home .info{
+    align-items: center;
+  }
+  main .home .info h1{
+    font-size: 5rem;
+    white-space: normal;
+  }
+  main .home .info .start-title span{
+    font-size: 1.6rem;
+  }
+}
+main .home .image-place{
+  flex: 1 0 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .home img{
+  max-width: 620px;
+  height: auto;
+  width: 100%;
 }
 
-.start-title
-{
-  width: 1150px;
+.info{
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 6px 10px;
 }
 
-.start-title h1 {
-  overflow: hidden; 
-  border-right: .15em solid orange; 
+.info h1 {
   white-space: nowrap;
-  margin: 0 auto;
-  letter-spacing: .15em; 
+  font-size: 6rem;
+  font-weight: bold;
+  transition: 1.5s all;
+  color: #fff;
+  letter-spacing: 7px;
+  text-shadow: 2px 10px 6px rgb(0 0 0 /15%);
+}
+
+.info .start-title{
+  margin-top: 10px;
+  width: 55%;
+  transition: 1.5s all;
+  text-shadow: 2px 6px 6px rgb(0 0 0 /15%);
+
+}
+.info .start-title div{
+  border-right: .15em solid #eee;
+  overflow: hidden;
   animation: 
-    typing 3.5s steps(40, end),
-    blink-caret .75s step-end infinite;
+  typing 3.5s steps(40, end),
+  blink-caret .75s step-end infinite;
+}
+.info .start-title div span{
+  font-size: 2rem; 
+  white-space: nowrap;
+  color: #eee;
 }
 
 /* The typing effect */
 @keyframes typing {
   from { width: 0 }
-  to { width: 100% }
+  to { width: 100%; }
 }
 
 /* The typewriter cursor effect */
 @keyframes blink-caret {
   from, to { border-color: transparent }
-  50% { border-color: orange; }
+  50% { border-color: #eee; }
+}
+.button-group{
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+.button {
+  max-width: 320px;
+  width: 100%;
+  height: 50px;
+  font-size: 12px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 6px;
+  outline: 0;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 2px 6px 6px rgb(0 0 0 /15%);
+  cursor: pointer;
+  position: relative;
+  background-color: #19a5f0;
+  color: #fff;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: 0.2s;
 }
 
-.home{
-  display: block;
+.button:hover {
+  background-color: #fff;
+  color: #0073df;
+  box-shadow: 2px 6px 6px rgb(0 0 0 /15%);
 }
 
 .game{
   display: none;
   color: white;
-
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 0
 }
 
-#logo {
-  font-size: 1000%;
-  transition: 1.5s all;
-  display: block;
-  color: white;
+.game .camp{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
-
-.start-title{
-  font-size: 300%;
-  transition: 1.5s all;
-  display: block;
-  color: white;
-  margin: 100px 0;
+.game .score{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
+.game .options{
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+}
 #btn_voltar{
   display: block;
-  margin-top: 300px;
-
-}
-.button {
-  font-size: 16px;
-  font-weight: 200;
-  letter-spacing: 1px;
-  padding: 13px 20px 13px;
-  outline: 0;
-  border: 1px solid black;
-  cursor: pointer;
+  margin: 0 auto;
   position: relative;
-  background-color: rgba(0, 0, 0, 0);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.button:after {
-  content: "";
-  background-color: #ffe54c;
-  width: 100%;
-  z-index: -1;
-  position: absolute;
-  height: 100%;
-  top: 7px;
-  left: 7px;
-  transition: 0.2s;
-}
-
-.button:hover:after {
-  top: 0px;
-  left: 0px;
-}
-
-@media (min-width: 768px) {
-  .button {
-    padding: 13px 50px 13px;
-  }
 }
 
 #goal{
   font-size: 1000%;
   transition: 1.5s all;
   display: inline-block;
-  color: #000000;
+  position: absolute;
+  color: transparent;
 }
 
 #left-player-div, #right-player-div{
   position: relative;
   width: 30px;
   height: 200px;
-  background-color: white;
 }
 
 #left-player-div{
   background-color: #0073df;
-  float: left;
 }
 
 #right-player-div {
   background-color: #e90000;    
-  float: right;
 }
 
 #ball{
