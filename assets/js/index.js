@@ -38,13 +38,13 @@ function pxToNumber(urpx) {
 
 function displayHome() {
   game.style.display = "none";
-  home.style.display = "block";
+  home.style.display = "flex";
   falgStartGame = false;
   location.reload();
 }
 
 function displayGame(mode) {
-  game.style.display = "block";
+  game.style.display = "flex";
   home.style.display = "none";
   falgStartGame = true;
   if (falgStartGame) {
@@ -184,7 +184,7 @@ function goal(pos) {
   ogoal.style.color = "white";
 
   setTimeout(function () {
-    ogoal.style.color = "black";
+    ogoal.style.color = "transparent";
   }, 1000);
 
   if (pos == "left-player-div") rscore.innerHTML = Number(rscore.innerHTML) + 1;
